@@ -1,0 +1,253 @@
+<!--
+LISTA DE VERIFICACIÓN
+
+1. Cambiar el nombre del archivo a depresion.html
+2. Cambiar el título de la página a "Diagnóstico de Depresión"
+3. Integrar nuevos CDN de otras librerías necesarias
+
+LISTA DE ARTÍCULOS SOBRE LIBRERÍA Y FRAMEWORKS DE JAVASCRIPT
+
+1. https://kinsta.com/blog/javascript-libraries/
+2. https://www.npmjs.com/
+3. https://geekflare.com/best-javascript-ui-libraries/
+
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>INICIO | SERA-24</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/fontawesome/4.7.0/css/font-awesome.min.css">
+    <!-- Incluir Font Awesome desde CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">  
+    <!--LaTeX Math CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+    <!-- Estilos personalizados -->
+     <link rel="stylesheet" href="styles.css">
+    <!--Librería MathJax-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+
+    <!--Header elegante-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container text-center">
+                <h1 class="navbar-brand" style="font-size: 30px; text-align: center;">Sistema de Evaluación de Riesgo Algorítmico (SERA-24)</h1>
+            </div>
+
+            <!-- Botón de menú -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../content/home.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="diagnostico.html">Diagnóstico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acerca.html">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container custom-container mt-5 p-4">
+        <h1 class="text-center mb-4 text-primary">🏥 Evaluación de Depresión 💊</h1>
+        <form id="diagnosticoForm" class="shadow-lg p-4 rounded bg-light">
+            <div class="row">
+                <!-- Pregunta 1 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta1">¿Ha sentido tristeza persistente en las últimas semanas? <i class="fas fa-question-circle" data-toggle="tooltip" title="La tristeza persistente es un síntoma común de la depresión."></i></label>
+                    <select class="form-control" id="pregunta1" name="pregunta1">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <!-- Pregunta 2 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta2">¿Ha perdido interés en actividades que antes disfrutaba? <i class="fas fa-question-circle" data-toggle="tooltip" title="La pérdida de interés en actividades que antes disfrutaba es un síntoma común de la depresión."></i></label>
+                    <select class="form-control" id="pregunta2" name="pregunta2">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Pregunta 3 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta3">¿Tiene dificultades para dormir o exceso de sueño? <i class="fas fa-question-circle" data-toggle="tooltip" title="Los problemas para dormir o el exceso de sueño son síntomas comunes de la depresión."></i></label>
+                    <select class="form-control" id="pregunta3" name="pregunta3">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <!-- Pregunta 4 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta4">¿Ha perdido o ganado peso sin razón aparente? <i class="fas fa-question-circle" data-toggle="tooltip" title="La pérdida o ganancia de peso sin razón aparente es un síntoma común de la depresión."></i></label>
+                    <select class="form-control" id="pregunta4" name="pregunta4">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Pregunta 5 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta5">¿Se siente cansado o sin energía? <i class="fas fa-question-circle" data-toggle="tooltip" title="La fatiga o la falta de energía son síntomas comunes de la depresión."></i></label>
+                    <select class="form-control" id="pregunta5" name="pregunta5">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <!-- Pregunta 6 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta6">¿Se siente inútil o culpable? <i class="fas fa-question-circle" data-toggle="tooltip" title="Los sentimientos de inutilidad o culpa son síntomas comunes de la depresión."></i></label>
+                    <select class="form-control" id="pregunta6" name="pregunta6">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Pregunta 7 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta7">¿Tiene dificultades para concentrarse o tomar decisiones? <i class="fas fa-question-circle" data-toggle="tooltip" title="Los problemas de concentración o la toma de decisiones son síntomas comunes de la depresión."></i></label>
+                    <select class="form-control" id="pregunta7" name="pregunta7">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                <!-- Pregunta 8 -->
+                <div class="col-md-6 form-group">
+                    <label for="pregunta8">¿Ha tenido pensamientos de muerte o suicidio? <i class="fas fa-question-circle" data-toggle="tooltip" title="Los pensamientos de muerte o suicidio son síntomas graves de la depresión."></i></label>
+                    <select class="form-control" id="pregunta8" name="pregunta8">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Pregunta 9 -->
+                <div class="col-md-12 form-group">
+                    <label for="pregunta9">¿Tiene alguna enfermedad crónica? <i class="fas fa-question-circle" data-toggle="tooltip" title="Las enfermedades crónicas pueden aumentar el riesgo de depresión."></i></label>
+                    <select class="form-control" id="pregunta9" name="pregunta9">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Botón de enviar -->
+            <button type="submit" class="btn btn-primary btn-block mt-4">
+                Evaluar <i class="fa fa-check"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Ícono de WhatsApp flotante -->
+    <a href="https://wa.me/573229608830" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Íconos flotantes -->
+    <div class="social-icons">
+        <a href="https://github.com/Jesus-David-Silva-Rangel-19" class="social-icon" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jes%C3%BAs-david-silva-rangel-77706a260/" class="social-icon" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="tel:+573229608830" class="social-icon">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:jdsr.cuentapersonal@gmail.com" class="social-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <!--Explicación Formula matemática detallada y con matemáticas transforma de Fourier con MathJax-->
+    <div class="container custom-container mt-5 p-4">
+        <h1 class="text-center mb-4 text-primary">🧮 Fórmula Matemática 📊</h1>
+        <p>La fórmula matemática utilizada para evaluar el riesgo de depresión es la siguiente:</p>
+        <div class="alert alert-info">
+            <p>RIESGO = (P1 + P2 + P3 + P4 + P5 + P6 + P7 + P8 + P9) / 9</p>
+        </div>
+        <p>Donde:</p>
+        <ul>
+            <li>P1, P2, P3, P4, P5, P6, P7, P8 y P9 son las respuestas a las preguntas del cuestionario.</li>
+            <li>El valor del riesgo se encuentra en el rango de 0 a 1.</li>
+            <li>Un valor cercano a 0 indica un bajo riesgo de depresión.</li>
+            <li>Un valor cercano a 1 indica un alto riesgo de depresión.</li>
+        </ul>
+        <p>La fórmula anterior se basa en la suma de las respuestas a las preguntas del cuestionario, dividida por el número total de preguntas.</p>
+        <p>Para calcular el riesgo de depresión, se deben responder todas las preguntas del cuestionario y luego hacer clic en el botón "Evaluar".</p>
+        <p>El resultado se mostrará en la parte inferior de la página, indicando el nivel de riesgo de depresión.</p>
+        <p>Recuerda que este cuestionario es solo una herramienta de evaluación y no reemplaza la opinión de un profesional de la salud.</p>
+    </div>
+
+
+    
+    <!-- Footer elegante -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>
+            &copy; 2024 - Todos los derechos reservados. <br>
+            Desarrollado por Jesús David Silva Rangel</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Script personalizado -->
+
+    
+    <!-- Librería MathJax --> 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+  	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+
+    </body> 
+
+</html>
+
+
+    <script src="scripts.js"></script>
+    <script>
+        // Inicializar tooltips de Bootstrap
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+</body>
+</html>
